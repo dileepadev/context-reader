@@ -1,0 +1,25 @@
+---
+description: "Use when writing or editing Docker, docker-compose, CI/CD, or deployment configuration. Covers container patterns, GitHub Actions workflow, and environment setup."
+applyTo: Dockerfile, docker-compose.yml, .github/workflows/**
+---
+
+# DevOps Standards
+
+## Docker
+
+- Separate Dockerfiles for backend (`backend/Dockerfile`) and frontend (`frontend/Dockerfile`).
+- Use multi-stage builds to minimize image size.
+- Do not copy `.env`, `__pycache__/`, `node_modules/`, `chroma_db/` into images.
+- `docker-compose.yml` must start the full stack with one command.
+
+## GitHub Actions CI
+
+- Pipeline: ESLint + Prettier → pytest → docker build.
+- Run on every push and pull request to `main`.
+- Fail fast on lint or test failures.
+
+## Environment
+
+- All secrets via environment variables — never hardcode.
+- Provide `.env.example` with all required variables (no real values).
+- Health check: `/health` endpoint verifies ChromaDB + Azure OpenAI connectivity.

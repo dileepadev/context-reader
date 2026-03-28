@@ -47,7 +47,7 @@ Follow this format strictly:
 - **Provide the final output as a Zsh-ready command**: You MUST wrap the `git commit` command in a Zsh code block so it can be copied and pasted directly into the terminal.
 - **Example output format**:
   ```zsh
-  git commit -m "feat(ui): Add new navigation menu (refs #2)" -m "Detailed description of changes..."
+  git commit -m "feat(ui): Add new navigation menu (refs #1)" -m "Detailed description of changes..."
   ```
 - **Current references**: Always include `(refs #1)` in the commit message header unless the changes close the issue, in which case use `(fixes #1)`.
 

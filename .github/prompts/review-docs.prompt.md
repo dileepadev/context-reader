@@ -1,22 +1,22 @@
 ---
-description: "Review all documentation files for quality, consistency, and adherence to project conventions."
+description: "Review code and documentation for quality, consistency, security, and adherence to project conventions."
 agent: "reviewer"
 tools: ["read", "search"]
 argument-hint: "Optionally specify files or areas to focus on"
 ---
 
-Review the documentation in this repository for quality and consistency.
+Review the ContextReader codebase and documentation for quality and consistency.
 
 ## Focus Areas
 
-1. **Formatting**: ATX-style headings, fenced code blocks with language IDs, properly aligned tables.
-2. **Links**: All relative links resolve to actual files in the repository.
-3. **Conventions**: Commit message, branch naming, and PR title formats match their respective guideline documents.
-4. **Consistency**: Tone, structure, and terminology are uniform across all files.
-5. **Completeness**: No placeholder sections left unfinished (except TODO.md).
-6. **One sentence per line**: Source Markdown follows one sentence per line for clean diffs.
+1. **Backend code**: Async endpoints, singleton client reuse, no hardcoded secrets, structured logging, input sanitization.
+2. **Frontend code**: TypeScript strict mode, SSE streaming (not WebSockets), proper error handling.
+3. **Security**: No secrets in code, CORS config, prompt injection detection, input validation.
+4. **ChromaDB**: PersistentClient usage, batch embeddings, correct distance metric.
+5. **Documentation**: Links resolve, conventions match guideline docs, no stale content.
+6. **Tests**: Coverage for ingestion, retrieval guardrails, and sanitizer.
 
 ## Scope
 
-Review all `.md` files in the repository root and `.github/` directory.
+Review all files in `backend/`, `frontend/`, and root `.md` files.
 Report issues as a structured table with file, line, issue description, and severity.

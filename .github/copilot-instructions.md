@@ -1,29 +1,66 @@
 ## Project
 
-`context-reader` is a documentation and governance template repository. It contains contribution guidelines, issue/PR templates, commit/branch/PR naming conventions, changelog, versioning strategy, and security policy. There is no application source code.
+**ContextReader** — a full-stack RAG (Retrieval-Augmented Generation) document chat application.
 
-## Writing Standards
+- **Stack**: Python · FastAPI · Next.js · TypeScript · Azure OpenAI · ChromaDB · Docker
+- Users upload documents (PDF, DOCX, TXT) and have natural language conversations with them.
+- Pipeline: ingest → chunk → embed → retrieve → generate (streamed) with inline source citations.
+- Part of a 4-project AI Engineer portfolio (Project 1).
 
-- Write in clear, concise English.
-- Use ATX-style headings (`#`, `##`, `###`).
-- Use reference-style links for URLs that appear more than once.
-- Use tables for structured data; align columns with pipes.
-- Use fenced code blocks with language identifiers (` ```bash `, ` ```md `).
-- One sentence per line in source markdown for cleaner diffs.
+## Architecture
 
-## Conventions
+```
+backend/          # Python — FastAPI, ingestion, retrieval, streaming, evaluation
+  prompts/        # Versioned system prompt templates (v1_system.txt, v2_system.txt)
+  tests/          # pytest unit tests
+  logs/           # Structured JSON logs + cost tracking
+frontend/         # Next.js 14 — TypeScript, Tailwind CSS
+  app/            # App router pages
+  components/     # ChatWindow, FileUpload, SourceCitation, TokenUsage
+  lib/            # API client (fetch + SSE)
+```
+
+## Tech Conventions
+
+### Python (backend)
+
+- Use `async` FastAPI endpoints.
+- Load config via `pydantic-settings` from `.env`.
+- Structured JSON logging — every request logs `request_id`, `endpoint`, `tokens_used`, `latency_ms`, `prompt_version`, `guardrail_triggered`.
+- Reuse a singleton `AsyncAzureOpenAI` client — never recreate per request.
+- Handle `429` (Rate Limit) with retry-after logic.
+- Batch embedding calls — do not call the API per chunk individually.
+- System prompts live in `backend/prompts/*.txt` — never hardcode prompt strings.
+
+### TypeScript (frontend)
+
+- Next.js 14 App Router with TypeScript strict mode.
+- Use `ReadableStream` + `fetch` + `getReader()` for SSE streaming — not WebSockets.
+- Tailwind CSS for styling.
+
+### ChromaDB
+
+- Use `PersistentClient(path="./chroma_db")` — not the in-memory client.
+- ChromaDB returns L2 distance (lower = more similar) by default.
+- For cosine similarity: `metadata={"hnsw:space": "cosine"}` on collection creation.
+
+### Azure OpenAI
+
+- Generation model: `gpt-4o` via `AZURE_OPENAI_DEPLOYMENT_NAME`.
+- Embedding model: `text-embedding-3-small` via `AZURE_OPENAI_EMBEDDING_DEPLOYMENT`.
+- Always use the latest Azure OpenAI SDK. Enable connection retries and preferred regions.
+
+## Git Conventions
 
 - **Commit messages**: Follow [COMMIT_MESSAGE_GUIDELINES.md](../COMMIT_MESSAGE_GUIDELINES.md) — format: `<type>(<scope>): <short message>`.
-- **Branch names**: Follow [BRANCH_NAMING_GUIDELINES.md](../BRANCH_NAMING_GUIDELINES.md) — format: `<type>/x` (e.g., `docs/readme`).
+- **Branch names**: Follow [BRANCH_NAMING_GUIDELINES.md](../BRANCH_NAMING_GUIDELINES.md) — format: `<type>/x`.
 - **PR titles**: Follow [PULL_REQUEST_GUIDELINES.md](../PULL_REQUEST_GUIDELINES.md) — format: `<type>(<branch>): <message> [#issue]`.
-- **Changelog**: Follow the categories in [CHANGELOG.md](../CHANGELOG.md) — Added, Changed, Fixed, Removed.
-- **Versioning**: Follow [VERSIONING.md](../VERSIONING.md) — SemVer (`MAJOR.MINOR.PATCH`).
-- **Issue templates**: Use the templates in [.github/ISSUE_TEMPLATE/](./ISSUE_TEMPLATE/).
-- **PR template**: Use [.github/PULL_REQUEST_TEMPLATE.md](./PULL_REQUEST_TEMPLATE.md).
+- **Changelog**: Follow [CHANGELOG.md](../CHANGELOG.md) — Added, Changed, Fixed, Removed.
+- **Versioning**: Follow [VERSIONING.md](../VERSIONING.md) — SemVer.
 
 ## Key Rules
 
-- Do not duplicate content already in guideline docs — link to them instead.
-- Keep all documentation consistent with the existing tone and structure.
+- Do not hardcode secrets — use environment variables via `.env`.
+- Do not commit `.env`, `__pycache__/`, `node_modules/`, `.pytest_cache/`, `chroma_db/`.
 - Update `CHANGELOG.md` when making notable changes.
 - Report security vulnerabilities to `contact@dileepa.dev` per [SECURITY.md](../SECURITY.md).
