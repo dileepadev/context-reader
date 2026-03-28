@@ -9,7 +9,7 @@ Users upload documents (PDF, DOCX, TXT) and have natural language conversations 
 Pipeline: ingest → chunk → embed → retrieve → generate (streamed) with inline source citations.
 
 - **Backend**: Python, FastAPI, ChromaDB, Azure OpenAI
-- **Frontend**: Next.js 14, TypeScript, Tailwind CSS
+- **Frontend**: Next.js 16, TypeScript, Tailwind CSS
 - **Infra**: Docker, docker-compose, GitHub Actions CI
 
 ## Validated Commands

@@ -14,7 +14,7 @@ backend/          # Python — FastAPI, ingestion, retrieval, streaming, evaluat
   prompts/        # Versioned system prompt templates (v1_system.txt, v2_system.txt)
   tests/          # pytest unit tests
   logs/           # Structured JSON logs + cost tracking
-frontend/         # Next.js 14 — TypeScript, Tailwind CSS
+frontend/         # Next.js 16 — TypeScript, Tailwind CSS
   app/            # App router pages
   components/     # ChatWindow, FileUpload, SourceCitation, TokenUsage
   lib/            # API client (fetch + SSE)
@@ -34,7 +34,7 @@ frontend/         # Next.js 14 — TypeScript, Tailwind CSS
 
 ### TypeScript (frontend)
 
-- Next.js 14 App Router with TypeScript strict mode.
+- Next.js 16 App Router with TypeScript strict mode.
 - Use `ReadableStream` + `fetch` + `getReader()` for SSE streaming — not WebSockets.
 - Tailwind CSS for styling.
 

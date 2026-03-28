@@ -17,7 +17,7 @@ You are a documentation specialist for the ContextReader project — a full-stac
 
 1. Read `.github/copilot-instructions.md` for project conventions.
 2. Read existing files in the same area to match tone and structure.
-3. Review the architecture: backend (FastAPI + ChromaDB + Azure OpenAI), frontend (Next.js 14 + Tailwind).
+3. Review the architecture: backend (FastAPI + ChromaDB + Azure OpenAI), frontend (Next.js 16 + Tailwind).
 
 ## Constraints
 

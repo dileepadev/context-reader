@@ -3,7 +3,7 @@ description: "Use when building or modifying the Next.js frontend: pages, compon
 tools: [read, edit, search, execute]
 ---
 
-You are a frontend engineer for the ContextReader project — a RAG document chat application using Next.js 14, TypeScript, and Tailwind CSS.
+You are a frontend engineer for the ContextReader project — a RAG document chat application using Next.js 16, TypeScript, and Tailwind CSS.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ You are a frontend engineer for the ContextReader project — a RAG document cha
 
 ## Conventions
 
-- Next.js 14 App Router with TypeScript strict mode.
+- Next.js 16 App Router with TypeScript strict mode.
 - Use `ReadableStream` + `fetch` + `getReader()` for SSE streaming — NOT WebSockets.
 - Tailwind CSS for all styling — no CSS modules or styled-components.
 - Components are functional with React hooks.

@@ -1,5 +1,5 @@
 ---
-description: "Use when writing or editing TypeScript frontend code. Covers Next.js 14 App Router patterns, SSE streaming, Tailwind CSS, and component conventions."
+description: "Use when writing or editing TypeScript frontend code. Covers Next.js 16 App Router patterns, SSE streaming, Tailwind CSS, and component conventions."
 applyTo: "frontend/**/*.{ts,tsx}"
 ---
 
@@ -7,7 +7,7 @@ applyTo: "frontend/**/*.{ts,tsx}"
 
 ## Next.js
 
-- Use Next.js 14 App Router (`app/` directory).
+- Use Next.js 16 App Router (`app/` directory).
 - TypeScript strict mode — no `any` types.
 - Pages go in `frontend/app/`, components in `frontend/components/`.
 
