@@ -13,13 +13,18 @@ This guide covers all deployment options for ContextReader.
 
 ## Environment Setup
 
-### 1. Create Your Environment File
+### 1. Create Your Environment Files
+
+Each sub-project has its own `.env.example`:
 
 ```bash
-cp .env.example .env
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
 ```
 
 ### 2. Configure Azure OpenAI Credentials
+
+Edit `backend/.env`:
 
 ```env
 # Required — Azure OpenAI
@@ -38,7 +43,7 @@ LOG_LEVEL=INFO
 ```
 
 > **Security:** Never commit `.env` to version control.
-> The `.gitignore` already excludes it.
+> Both `.gitignore` files already exclude it.
 
 ### 3. Azure OpenAI Resource Setup
 

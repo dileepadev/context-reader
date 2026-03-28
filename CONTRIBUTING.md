@@ -50,28 +50,36 @@ Thank you for your interest in contributing to [context-reader](https://github.c
 - Add tests if applicable.
 - Ensure all tests pass before submitting your changes.
 - Keep your pull request focused and avoid unrelated changes.
-- Refer to the following templates and guidelines before submitting your changes:
-  - [context-reader/](./) - Root directory of the repository
-    - [.github/](./.github) - GitHub-specific files (workflows, templates, etc.)
-      - [ISSUE_TEMPLATE/](./.github/ISSUE_TEMPLATE) - Contains all issue templates
-        - [bug_report.md](./.github/ISSUE_TEMPLATE/bug_report.md) - Template for reporting bugs
-        - [documentation_update.md](./.github/ISSUE_TEMPLATE/documentation_update.md) - Template for documentation updates
-        - [feature_request.md](./.github/ISSUE_TEMPLATE/feature_request.md) - Template for suggesting new features
-        - [feedback.md](./.github/ISSUE_TEMPLATE/feedback.md) - Template for general feedback
-        - [other.md](./.github/ISSUE_TEMPLATE/other.md) - Template for other types of issues
-      - [PULL_REQUEST_TEMPLATE.md](./.github/PULL_REQUEST_TEMPLATE.md) - Template for pull request submissions
-    - [BRANCH_NAMING_GUIDELINES.md](./BRANCH_NAMING_GUIDELINES.md) - Branch naming rules
-    - [CHANGELOG.md](./CHANGELOG.md) - Record of project changes
-    - [CITATION.cff](./CITATION.cff) - Standardized citation information for the repository
-    - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) - Contributor behavior guidelines
-    - [COMMIT_MESSAGE_GUIDELINES.md](./COMMIT_MESSAGE_GUIDELINES.md) - Rules for writing commit messages
-    - [CONTRIBUTING.md](./CONTRIBUTING.md) - How to contribute to the project
-    - [LICENSE](./LICENSE) - Project license
-    - [PULL_REQUEST_GUIDELINES.md](./PULL_REQUEST_GUIDELINES.md) - Pull request submission guidelines
-    - [README.md](./README.md) - Project overview
-    - [SECURITY.md](./SECURITY.md) - Security policy and reporting
-    - [TODO.md](./TODO.md) - Tasks planned for future releases
-    - [VERSIONING.md](./VERSIONING.md) - Versioning strategy for the project
+- Refer to the project structure below:
+
+```text
+context-reader/
+├── .github/
+│   ├── ISSUE_TEMPLATE/              # Issue templates
+│   ├── PULL_REQUEST_TEMPLATE.md     # PR template
+│   ├── agents/                      # Copilot agent definitions
+│   ├── copilot-instructions.md      # Workspace instructions
+│   ├── instructions/                # File-scoped coding standards
+│   ├── prompts/                     # Reusable prompt templates
+│   └── skills/                      # Domain-specific skill workflows
+├── backend/                         # Python FastAPI backend
+├── frontend/                        # Next.js TypeScript frontend
+├── docs/
+│   ├── ARCHITECTURE.md              # System design and decisions
+│   ├── DEPLOYMENT.md                # Deployment and environment setup
+│   └── PROJECT_PLAN.md              # Roadmap, milestones, dev checklist, and future improvements
+├── AGENTS.md                        # Agent instructions
+├── BRANCH_NAMING_GUIDELINES.md      # Branch naming rules
+├── CHANGELOG.md                     # Record of project changes
+├── CODE_OF_CONDUCT.md               # Contributor behavior guidelines
+├── COMMIT_MESSAGE_GUIDELINES.md     # Commit message rules
+├── CONTRIBUTING.md                  # How to contribute
+├── LICENSE                          # MIT License
+├── PULL_REQUEST_GUIDELINES.md       # PR submission guidelines
+├── README.md                        # Project overview
+├── SECURITY.md                      # Security policy
+└── VERSIONING.md                    # Versioning strategy
+```
 
 ## Code of Conduct
 

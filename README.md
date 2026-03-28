@@ -110,8 +110,11 @@ context-reader/
 │   │   └── TokenUsage.tsx   # Token and cost display
 │   └── lib/
 │       └── api.ts           # API client (fetch + SSE)
+├── docs/
+│   ├── ARCHITECTURE.md     # System design and technical decisions
+│   ├── DEPLOYMENT.md        # Deployment and environment setup
+│   └── PROJECT_PLAN.md      # Roadmap, milestones, dev checklist, and future improvements
 ├── docker-compose.yml
-├── .env.example
 └── README.md
 ```
 
@@ -134,10 +137,11 @@ cd context-reader
 ### 2. Configure Environment Variables
 
 ```bash
-cp .env.example .env
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
 ```
 
-Edit `.env` with your Azure OpenAI credentials:
+Edit `backend/.env` with your Azure OpenAI credentials:
 
 ```env
 AZURE_OPENAI_API_KEY=your-api-key
@@ -243,7 +247,7 @@ npx tsc --noEmit
 
 ## Deployment
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions covering:
+See [DEPLOYMENT.md](docs/DEPLOYMENT.md) for detailed deployment instructions covering:
 
 - Local development setup
 - Docker Compose deployment
@@ -254,15 +258,21 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions covering
 
 | Document | Description |
 | --- | --- |
-| [PROJECT_PLAN.md](PROJECT_PLAN.md) | Implementation roadmap and milestones |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | System design and technical decisions |
-| [DEPLOYMENT.md](DEPLOYMENT.md) | Deployment and environment setup |
+| [docs/README.md](docs/README.md) | Documentation index and recommended reading order |
+| [PROJECT_PLAN.md](docs/PROJECT_PLAN.md) | Delivery phases, detailed checklist, release gate, and backlog |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design and technical decisions |
+| [DEPLOYMENT.md](docs/DEPLOYMENT.md) | Deployment and environment setup |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute |
 | [CHANGELOG.md](CHANGELOG.md) | Release history |
+| [BRANCH_NAMING_GUIDELINES.md](BRANCH_NAMING_GUIDELINES.md) | Branch naming conventions |
+| [COMMIT_MESSAGE_GUIDELINES.md](COMMIT_MESSAGE_GUIDELINES.md) | Commit message conventions |
+| [PULL_REQUEST_GUIDELINES.md](PULL_REQUEST_GUIDELINES.md) | Pull request structure and review checklist |
+| [ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) | Standardized issue templates for bugs, docs, and feature requests |
+| [PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md) | Default pull request template used on GitHub |
 | [SECURITY.md](SECURITY.md) | Security policy |
-| [TODO.md](TODO.md) | Upcoming tasks and roadmap |
 | [VERSIONING.md](VERSIONING.md) | Versioning strategy |
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Community guidelines |
+| [AGENTS.md](AGENTS.md) | Agent workflow and repository-specific coding instructions |
 
 ## License
 
