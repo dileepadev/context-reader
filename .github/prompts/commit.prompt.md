@@ -2,10 +2,10 @@
 agent: "agent"
 model: GPT-5 mini (copilot)
 tools: ["execute", "read", "search"]
-description: "Generate a new commit message based on the provided code changes."
+description: "Generate a commit message based on staged changes."
 ---
 
-Your goal is to generate the most appropriate and effective commit message based on the provided code changes.
+Your goal is to generate the most appropriate and effective commit message based on the staged changes in the repository. Follow the commit message format and guidelines strictly to ensure clarity and consistency in the project's commit history.
 
 ## Commit Message Format
 

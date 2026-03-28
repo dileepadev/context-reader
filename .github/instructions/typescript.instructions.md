@@ -27,3 +27,15 @@ applyTo: "frontend/**/*.{ts,tsx}"
 - Functional components with React hooks.
 - Keep components focused — one responsibility per file.
 - Key components: `ChatWindow`, `FileUpload`, `SourceCitation`, `TokenUsage`.
+
+## State and Error Handling
+
+- Every async operation must show loading, success, and error states.
+- Display user-friendly messages for network errors and API failures.
+- Use `AbortController` to cancel in-flight requests when the user navigates away.
+
+## Environment Variables
+
+- Backend URL comes from `NEXT_PUBLIC_API_URL` — never hardcode `localhost`.
+- Store all frontend env vars in `frontend/.env.example` with placeholder values.
+- Access via `process.env.NEXT_PUBLIC_*` only.

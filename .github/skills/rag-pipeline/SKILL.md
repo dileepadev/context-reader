@@ -53,6 +53,15 @@ QUERY:     Question → Embed → Search ChromaDB → Guardrail → Build Prompt
 3. **Stream** — Use `AsyncAzureOpenAI` with `stream=True`, yield SSE events.
 4. **Track** — Log `prompt_tokens`, `completion_tokens`, estimated cost to `logs/cost.jsonl`.
 
+## Error Handling
+
+- **Empty document**: Return `400` with a clear message if parsed text is empty after extraction.
+- **Unsupported file type**: Return `422` if the uploaded file is not PDF, DOCX, or TXT.
+- **Embedding failure**: Catch `openai.APIError`, log the error with `request_id`, return `503`.
+- **ChromaDB unavailable**: Catch connection errors, return `503` with a structured error response.
+- **All chunks filtered**: When guardrail filters everything, return the fallback message with `guardrail_triggered: true`.
+- **Rate limited (429)**: Read the `retry-after` header, wait, then retry once. Log the retry event.
+
 ## Key References
 
 - [Ingestion module](./references/ingestion-patterns.md)

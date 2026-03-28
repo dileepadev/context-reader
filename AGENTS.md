@@ -48,7 +48,13 @@ frontend/
   app/                 # Next.js App Router pages
   components/          # ChatWindow, FileUpload, SourceCitation, TokenUsage
   lib/                 # API client (fetch + SSE)
+docs/
+  ARCHITECTURE.md      # System design, data flow, and design decisions
+  DEPLOYMENT.md        # Environment setup, Docker Compose, and production guide
+  PROJECT_PLAN.md      # Delivery phases, detailed checklist, and release gate
 ```
+
+Refer to `docs/PROJECT_PLAN.md` for the current implementation plan and progress tracking.
 
 ## Adding Backend Code
 

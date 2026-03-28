@@ -18,7 +18,13 @@ frontend/         # Next.js 16 — TypeScript, Tailwind CSS
   app/            # App router pages
   components/     # ChatWindow, FileUpload, SourceCitation, TokenUsage
   lib/            # API client (fetch + SSE)
+docs/             # Project-specific documentation
+  ARCHITECTURE.md # System design and data flow
+  DEPLOYMENT.md   # Environment setup and deployment guide
+  PROJECT_PLAN.md # Source of truth for delivery phases and task tracking
 ```
+
+`docs/PROJECT_PLAN.md` is the single planning source — use it to track implementation progress.
 
 ## Tech Conventions
 

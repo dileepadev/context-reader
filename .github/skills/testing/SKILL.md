@@ -23,11 +23,13 @@ cd backend && python -m pytest tests/ -v
 
 ### Test Files
 
-| Module         | Test File                 | What to Test                                                          |
-| -------------- | ------------------------- | --------------------------------------------------------------------- |
-| `ingestion.py` | `tests/test_ingestion.py` | Chunking boundaries, overlap, empty docs, file type handling          |
-| `retrieval.py` | `tests/test_retrieval.py` | Guardrail triggers below threshold, passes above, score ordering      |
-| `sanitizer.py` | `tests/test_sanitizer.py` | Injection patterns blocked, clean inputs pass, max length enforcement |
+| Module            | Test File                    | What to Test                                                          |
+| ----------------- | ---------------------------- | --------------------------------------------------------------------- |
+| `ingestion.py`    | `tests/test_ingestion.py`    | Chunking boundaries, overlap, empty docs, file type handling          |
+| `retrieval.py`    | `tests/test_retrieval.py`    | Guardrail triggers below threshold, passes above, score ordering      |
+| `sanitizer.py`    | `tests/test_sanitizer.py`    | Injection patterns blocked, clean inputs pass, max length enforcement |
+| `cost_tracker.py` | `tests/test_cost_tracker.py` | Token counting accuracy, cost calculation, JSONL output format        |
+| `streaming.py`    | `tests/test_streaming.py`    | SSE event format, error propagation, prompt assembly                  |
 
 ### Patterns
 
@@ -60,11 +62,17 @@ async def test_embedding_batch_call(mock_embed):
 
 - Chunking splits at correct boundaries with overlap
 - Chunking handles empty document gracefully
+- Chunking respects the 1000-character size limit on every chunk
 - Guardrail triggers when best score exceeds threshold
 - Guardrail passes when best score is within threshold
+- Guardrail returns fallback message when all chunks are filtered
 - Sanitizer blocks common injection patterns (`ignore previous instructions`, etc.)
 - Sanitizer passes clean input without false positives
 - Sanitizer enforces max input length
+- Cost tracker calculates correct token counts from API response
+- Cost tracker writes entries to `logs/cost.jsonl`
+- Streaming endpoint returns SSE-formatted events
+- Streaming endpoint handles Azure OpenAI errors gracefully
 
 ## Frontend Checks
 
