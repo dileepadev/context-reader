@@ -33,3 +33,9 @@ You are a frontend engineer for the ContextReader project — a RAG document cha
 ## Tests
 
 Run: `cd frontend && npm run lint && npx tsc --noEmit`
+
+## After Completing a Task
+
+1. Confirm checks pass: `cd frontend && npm run lint && npx tsc --noEmit`
+2. Open `docs/PROJECT_PLAN.md` and mark the corresponding checklist item `[x]`.
+3. Include the checklist update in the same commit as your code.

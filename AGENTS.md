@@ -81,3 +81,13 @@ Refer to `docs/PROJECT_PLAN.md` for the current implementation plan and progress
 - ChromaDB: use `PersistentClient(path="./chroma_db")` — not the in-memory client.
 - Update `CHANGELOG.md` when making notable changes.
 - Follow conventions in `.github/copilot-instructions.md` for git, coding, and documentation standards.
+
+## Tracking Progress
+
+After completing any task that corresponds to a checklist item in `docs/PROJECT_PLAN.md`:
+
+1. Confirm the implementation works and tests pass.
+2. Open `docs/PROJECT_PLAN.md` and mark the item done: `- [ ]` → `- [x]`.
+3. Include the checklist update in the same commit as the implementation.
+
+Do not mark an item `[x]` unless it is fully implemented, tested, and committed.

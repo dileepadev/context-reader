@@ -70,3 +70,13 @@ docs/             # Project-specific documentation
 - Do not commit `.env`, `__pycache__/`, `node_modules/`, `.pytest_cache/`, `chroma_db/`.
 - Update `CHANGELOG.md` when making notable changes.
 - Report security vulnerabilities to `contact@dileepa.dev` per [SECURITY.md](../SECURITY.md).
+
+## Tracking Progress
+
+When completing any work that corresponds to a checklist item in `docs/PROJECT_PLAN.md`:
+
+1. Verify the implementation works and relevant tests pass.
+2. Mark the item as done in `docs/PROJECT_PLAN.md`: `- [ ]` → `- [x]`.
+3. Include that checklist update in the same commit as the code change.
+
+Only mark `[x]` when the item is fully implemented, tested, and committed.

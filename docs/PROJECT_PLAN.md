@@ -13,6 +13,22 @@ Build a production-grade RAG application that supports document upload, semantic
 - Use the definition of done as the release gate for v0.1.0
 - Keep future enhancements in the backlog section only
 
+## Maintaining the Checklist
+
+This checklist is a living record of implementation progress.
+Update it as you complete work — do not leave it stale.
+
+- **Before starting**: Read the relevant phase section to understand scope and exit criteria.
+- **During development**: Follow the guidelines in `.github/copilot-instructions.md` and the applicable skill files.
+- **After completing**: Mark the corresponding checklist item as done by changing `- [ ]` to `- [x]`.
+- **After verifying**: Only mark an item `[x]` once its tests pass, behaviour is confirmed, and the code is committed.
+- **Release gate**: Every item in "Definition of Done (v0.1.0)" must be `[x]` before the project is complete.
+
+### Example
+
+Before: `- [ ] Retrieval guardrail filtering (distance threshold 0.75)`
+After:  `- [x] Retrieval guardrail filtering (distance threshold 0.75)`
+
 ## Phase Overview
 
 | Phase | Objective | Exit Criteria |

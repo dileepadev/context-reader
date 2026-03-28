@@ -36,3 +36,9 @@ You are a Python backend engineer for the ContextReader project — a RAG docume
 ## Tests
 
 Run tests: `cd backend && python -m pytest tests/ -v`
+
+## After Completing a Task
+
+1. Confirm all tests pass: `cd backend && python -m pytest tests/ -v`
+2. Open `docs/PROJECT_PLAN.md` and mark the corresponding checklist item `[x]`.
+3. Include the checklist update in the same commit as your code.
